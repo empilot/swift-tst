@@ -9,6 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var enterDateTextField: UITextField!
+    @IBOutlet weak var addCommentTextField: UITextField!
+    @IBOutlet weak var saveDataButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +27,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func saveDataButtonPressed(sender: UIButton) {
+    
+    messageLabel.hidden = false
+    messageLabel.text = addCommentTextField.text
+    messageLabel.textColor = UIColor.redColor()
+    
+    enterDateTextField.text = ""
+    enterDateTextField.resignFirstResponder()
+        
+    saveDataButton.setTitle("Saved", forState: UIControlState.Normal)
+    
+    }
 
 }
 
